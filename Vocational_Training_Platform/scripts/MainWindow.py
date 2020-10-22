@@ -13,8 +13,9 @@ from dayu_widgets.qt import *
 
 
 class MainWindow(QWidget):
-    ICON_PATH = os.path.join(os.getcwd(), r"img\LOGO1.png")
-    LOGO_PATH = os.path.join(os.getcwd(), r"img\LOGO2.png")
+    ICON_PATH = os.path.join(os.path.abspath('..'), r"img\LOGO1.png")
+    LOGO_PATH = os.path.join(os.path.abspath('..'), r"img\LOGO2.png")
+    FILE_PATH = os.path.abspath('..')
 
     def __init__(self):
         super(MainWindow, self).__init__()
@@ -37,6 +38,11 @@ class MainWindow(QWidget):
         self.lay2 = None
         self.lay2_1 = None
         self.lay2_2 = None
+        self.lay2_2_H1 = None
+        self.lay2_2_H2 = None
+        self.divider_class = None
+        self.lay2_2_H2_1 = None
+        self.lay2_2_H2_2 = None
 
         self.carousel = None
 
@@ -48,10 +54,10 @@ class MainWindow(QWidget):
         self.icon_logo = QIcon(QIcon(self.ICON_PATH))
         self.setWindowIcon(self.icon_logo)
 
-        # 总体layout
+        # main_lay
         self.main_lay = QVBoxLayout()
 
-        # Lay1_1
+        # Lay1
         self.lay1 = QHBoxLayout()
 
         self.label_logo = MLabel()
@@ -73,26 +79,40 @@ class MainWindow(QWidget):
         self.lay1.addWidget(self.btn_signIn)
         self.lay1.addWidget(self.btn_register)
 
-        # lay2_1
+        # lay2
         self.lay2 = QHBoxLayout()
         self.lay2_1 = QVBoxLayout()
         self.lay2_2 = QVBoxLayout()
+        self.lay2_2_H1 = QHBoxLayout()
+        self.lay2_2_H2 = QHBoxLayout()
+        self.lay2_2_H2 = QHBoxLayout()
+        self.lay2_2_H2_1 = QFormLayout()
+        self.lay2_2_H2_2 = QVBoxLayout()
 
         # self.lay2_1.addStretch()
 
-        self.carousel = MCarousel([MPixmap(r'D:\LinHuiHuang\Vocational_Training_Platform\img\1.PNG'),
-                                   MPixmap(r'D:\LinHuiHuang\Vocational_Training_Platform\img\2.PNG'),
-                                   MPixmap(r'D:\LinHuiHuang\Vocational_Training_Platform\img\3.PNG'),
-                                   MPixmap(r'D:\LinHuiHuang\Vocational_Training_Platform\img\4.PNG')],
-                                  width=1202,
-                                  height=362,
-                         autoplay=True)
-        self.lay2_2.addWidget(self.carousel)
+        self.carousel = MCarousel([MPixmap(os.path.join(self.FILE_PATH, r"img\1.PNG")),
+                                   MPixmap(os.path.join(self.FILE_PATH, r"img\2.PNG")),
+                                   MPixmap(os.path.join(self.FILE_PATH, r"img\3.PNG")),
+                                   MPixmap(os.path.join(self.FILE_PATH, r"img\4.PNG"))],
+                                  width=1202, height=362, autoplay=True)
+
+        self.lay2_2_H1.addStretch()
+        self.lay2_2_H1.addWidget(self.carousel)
+        self.lay2_2_H1.addStretch()
+
+        self.divider_class = MDivider.center(u'热门课程')
+        self.lay2_2_H2_1.addWidget(self.divider_class)
+        self.lay2_2_H2.addLayout(self.lay2_2_H2_1)
+        self.lay2_2_H2.addLayout(self.lay2_2_H2_2)
+
+        self.lay2_2.addLayout(self.lay2_2_H1)
+        self.lay2_2.addLayout(self.lay2_2_H2)
+
         self.lay2_2.addStretch()
 
         self.lay2.addLayout(self.lay2_1)
         self.lay2.addLayout(self.lay2_2)
-
 
         # 添加layout至main_lay
         self.main_lay.addLayout(self.lay1)

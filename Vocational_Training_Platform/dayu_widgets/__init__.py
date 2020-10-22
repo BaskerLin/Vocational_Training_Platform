@@ -1,5 +1,5 @@
 
-DEFAULT_STATIC_FOLDER = r"D:\LinHuiHuang\Vocational_Training_Platform\dayu_widgets\static"
+DEFAULT_STATIC_FOLDER = r"D:\LinHuiHuang\Vocational_Training_Platform\Vocational_Training_Platform\dayu_widgets\static"
 CUSTOM_STATIC_FOLDERS = []
 from theme import MTheme
 
