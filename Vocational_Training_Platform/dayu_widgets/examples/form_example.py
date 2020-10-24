@@ -28,7 +28,7 @@ if __name__ == '__main__':
     import sys
     from dayu_widgets import dayu_theme
     app = QApplication(sys.argv)
-    test = MFormTest()
+    test = MForm()
     dayu_theme.apply(test)
     test.show()
     sys.exit(app.exec_())

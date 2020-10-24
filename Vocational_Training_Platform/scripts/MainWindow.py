@@ -8,7 +8,8 @@ import pymysql
 
 import dayu_widgets
 from dayu_widgets.dock_widget import MDockWidget
-from dayu_widgets import MTextEdit, MLineEdit, MPushButton, MLabel, MDivider, MCarousel, MTreeView
+from dayu_widgets import MTextEdit, MLineEdit, MPushButton, MLabel, MDivider, MCarousel, MTreeView, MToolButtonGroup, \
+    dayu_theme
 from dayu_widgets.qt import *
 
 
@@ -96,13 +97,24 @@ class MainWindow(QWidget):
                                    MPixmap(os.path.join(self.FILE_PATH, r"img\3.PNG")),
                                    MPixmap(os.path.join(self.FILE_PATH, r"img\4.PNG"))],
                                   width=1202, height=362, autoplay=True)
-
         self.lay2_2_H1.addStretch()
         self.lay2_2_H1.addWidget(self.carousel)
         self.lay2_2_H1.addStretch()
 
         self.divider_class = MDivider.center(u'热门课程')
+
+        toolbtn_1 = QToolButton()
+        toolbtn_1.setIcon(QIcon(os.path.join(self.FILE_PATH, r'img\热门图片1.PNG')))
+        toolbtn_2 = QToolButton()
+        toolbtn_2.setIcon(QIcon(os.path.join(self.FILE_PATH, r'img\热门图片2.PNG')))
+        toolbtn_3 = QToolButton()
+        toolbtn_3.setIcon(QIcon(os.path.join(self.FILE_PATH, r'img\热门图片3.PNG')))
+        toolbtn_4 = QToolButton()
+        toolbtn_4.setIcon(QIcon(os.path.join(self.FILE_PATH, r'img\热门图片4.PNG')))
+
         self.lay2_2_H2_1.addWidget(self.divider_class)
+        self.lay2_2_H2_1.addRow(toolbtn_1, toolbtn_2)
+        
         self.lay2_2_H2.addLayout(self.lay2_2_H2_1)
         self.lay2_2_H2.addLayout(self.lay2_2_H2_2)
 
