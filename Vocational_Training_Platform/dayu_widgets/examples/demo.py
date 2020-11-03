@@ -15,7 +15,7 @@ def get_test_widget():
         name = i.split('.')[0]
         module_name = '{component}'.format(component=name)
         class_name = ''.join(map(lambda x: x.title(), name.split('_')))
-        module = importlib.import_module(module_name,class_name)
+        module = importlib.import_module(module_name, class_name)
         if hasattr(module, class_name):
             with open('./{}.py'.format(name)) as f:
                 result.append((name, getattr(module, class_name), f.readlines()))

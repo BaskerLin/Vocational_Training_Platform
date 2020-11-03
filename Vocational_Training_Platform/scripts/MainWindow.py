@@ -11,6 +11,7 @@ from dayu_widgets.dock_widget import MDockWidget
 from dayu_widgets import MTextEdit, MLineEdit, MPushButton, MLabel, MDivider, MCarousel, MTreeView, MToolButtonGroup, \
     dayu_theme
 from dayu_widgets.qt import *
+from PySide import QtGui, QtCore
 
 
 class MainWindow(QWidget):
@@ -42,8 +43,13 @@ class MainWindow(QWidget):
         self.lay2_2_H1 = None
         self.lay2_2_H2 = None
         self.divider_class = None
+        self.divider_article = None
         self.lay2_2_H2_1 = None
+        self.lay2_2_H2_H1 = None
+        self.lay2_2_H2_H2 = None
         self.lay2_2_H2_2 = None
+
+        self.treeview = None
 
         self.carousel = None
 
@@ -87,10 +93,17 @@ class MainWindow(QWidget):
         self.lay2_2_H1 = QHBoxLayout()
         self.lay2_2_H2 = QHBoxLayout()
         self.lay2_2_H2 = QHBoxLayout()
-        self.lay2_2_H2_1 = QFormLayout()
+        self.lay2_2_H2_1 = QVBoxLayout()
+        self.lay2_2_H2_H1 = QHBoxLayout()
+        self.lay2_2_H2_H2 = QHBoxLayout()
+        self.lay2_2_H2_1 = QVBoxLayout()
         self.lay2_2_H2_2 = QVBoxLayout()
 
         # self.lay2_1.addStretch()
+        structure_list = []
+        self.treeview = QTreeView()
+        model = QFileSystemModel()
+        self.treeview.setModel(model)
 
         self.carousel = MCarousel([MPixmap(os.path.join(self.FILE_PATH, r"img\1.PNG")),
                                    MPixmap(os.path.join(self.FILE_PATH, r"img\2.PNG")),
@@ -103,19 +116,24 @@ class MainWindow(QWidget):
 
         self.divider_class = MDivider.center(u'热门课程')
 
-        toolbtn_1 = QToolButton()
-        toolbtn_1.setIcon(QIcon(os.path.join(self.FILE_PATH, r'img\热门图片1.PNG')))
-        toolbtn_2 = QToolButton()
-        toolbtn_2.setIcon(QIcon(os.path.join(self.FILE_PATH, r'img\热门图片2.PNG')))
-        toolbtn_3 = QToolButton()
-        toolbtn_3.setIcon(QIcon(os.path.join(self.FILE_PATH, r'img\热门图片3.PNG')))
-        toolbtn_4 = QToolButton()
-        toolbtn_4.setIcon(QIcon(os.path.join(self.FILE_PATH, r'img\热门图片4.PNG')))
+        for i in range(1, 5):
+            self.set_hot_class_button(i, self.lay2_2_H2_H1)
+        for i in range(5, 9):
+            self.set_hot_class_button(i, self.lay2_2_H2_H2)
 
         self.lay2_2_H2_1.addWidget(self.divider_class)
-        self.lay2_2_H2_1.addRow(toolbtn_1, toolbtn_2)
-        
+        self.lay2_2_H2_1.addLayout(self.lay2_2_H2_H1)
+        self.lay2_2_H2_1.addLayout(self.lay2_2_H2_H2)
+
+        self.divider_article = MDivider.center(u'热门课程')
+        self.lay2_2_H2_2.addWidget(self.divider_article)
+        hot_atricle = [u"砖瓦抹灰操作技能", u"电工四级", u"洗衣机安装与维修", u"保育员五级", u"如何补塔刀"]
+        for text in hot_atricle:
+            self.set_atricle_button(text, self.lay2_2_H2_2)
+        self.lay2_2_H2_2.addStretch()
+
         self.lay2_2_H2.addLayout(self.lay2_2_H2_1)
+
         self.lay2_2_H2.addLayout(self.lay2_2_H2_2)
 
         self.lay2_2.addLayout(self.lay2_2_H1)
@@ -138,6 +156,21 @@ class MainWindow(QWidget):
 
     def resize_default(self):
         self.setGeometry((1920 - 800) / 2, (1080 - 600) / 2, 800, 600)
+
+    def set_hot_class_button(self, i, layout):
+        path = r"img\hot" + str(i) + ".PNG"
+        icon = QIcon(os.path.join(self.FILE_PATH, path))
+        pushbtn = QPushButton()
+        pushbtn.setIcon(icon)
+        pushbtn.setStyleSheet("border:None")
+        pushbtn.setIconSize(QSize(210, 125))
+        pushbtn.setMinimumSize(210, 125)
+        layout.addWidget(pushbtn)
+
+    def set_atricle_button(self, text, layout):
+        pushbtn = QPushButton(text)
+        pushbtn.setStyleSheet("border:None")
+        layout.addWidget(pushbtn)
 
 
 if __name__ == '__main__':
