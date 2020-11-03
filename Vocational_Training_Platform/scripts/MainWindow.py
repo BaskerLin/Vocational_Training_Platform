@@ -13,6 +13,7 @@ from dayu_widgets import MTextEdit, MLineEdit, MPushButton, MLabel, MDivider, MC
 from dayu_widgets.qt import *
 
 import LoginWindow
+import RegisterWindow
 
 
 class MainWindow(QWidget):
@@ -22,6 +23,8 @@ class MainWindow(QWidget):
 
     def __init__(self):
         super(MainWindow, self).__init__()
+
+        self.level = 0
 
         # 初始化控件
         self.icon_logo = None
@@ -54,11 +57,16 @@ class MainWindow(QWidget):
         self.lay2_2_H2_H2 = None
         self.lay2_2_H2_2 = None
 
-        self.carousel = None
+        self.carousel = None    # 轮播图
 
+        # 初始化
         self.construct_ui()
         self.resize_default()
         self.set_func_connect()
+
+        # 其他窗口
+        self.login_window = None
+        self.register_window = None
 
     def construct_ui(self):
         self.setWindowTitle(u"职业培训平台")
@@ -191,6 +199,7 @@ class MainWindow(QWidget):
         self.tree.setColumnCount(1)
         self.tree.setHeaderHidden(1)
         self.tree.setGeometry(QRect(1, 1, 250, 500))
+        self.tree.itemClicked.connect(self.tree_widget_item_clicked)
 
         new_widget_1 = QTreeWidgetItem(self.tree)
         new_widget_1.setText(0, u'技能培训')
@@ -207,6 +216,8 @@ class MainWindow(QWidget):
         new_widget_3_2.setText(0, u'家庭服务')
         new_widget_3_3 = QTreeWidgetItem(new_widget_3)
         new_widget_3_3.setText(0, u'运输与物流')
+        new_widget_3_3_1 = QTreeWidgetItem(new_widget_3_3)
+        new_widget_3_3_1.setText(0, u'第一章')
 
         tem_widget = QWidget()
         tem_lay = QVBoxLayout()
@@ -218,12 +229,40 @@ class MainWindow(QWidget):
         layout.addWidget(tem_widget)
 
     def set_func_connect(self):
-        self.btn_login.clicked.connect(self.show_login_window)
+        self.btn_login.clicked.connect(self.show_login_window)  # 登录界面
+        self.btn_register.clicked.connect(self.show_register_window)    # 注册界面
 
     def show_login_window(self):
-        self.loginwindow = LoginWindow.LoginWindow()
-        dayu_widgets.dayu_theme.apply(self.loginwindow)
-        self.loginwindow.show()
+        self.login_window = LoginWindow.LoginWindow()
+        dayu_widgets.dayu_theme.apply(self.login_window)
+        self.login_window.show()
+
+    def show_register_window(self):
+        self.register_window = RegisterWindow.RegisterWindow()
+        dayu_widgets.dayu_theme.apply(self.register_window)
+        self.register_window.show()
+
+    def tree_widget_item_clicked(self, item):
+        if self.judge_level(item):
+            pass
+
+    def judge_level(self, item):
+        self.get_level(item)
+        print self.level
+        if self.level == 2:
+            self.level = 0
+            print True
+            return True
+        else:
+            self.level = 0
+            print False
+            return False
+
+    def get_level(self, item):
+        if item.parent():
+            par = item.parent()
+            self.level = self.level + 1
+            self.get_level(par)
 
 
 if __name__ == '__main__':
