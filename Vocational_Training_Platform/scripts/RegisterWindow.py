@@ -7,6 +7,7 @@ from dayu_widgets.dock_widget import MDockWidget
 from dayu_widgets import MTextEdit, MLineEdit, MPushButton, MLabel, MDivider, MCarousel, MTreeView, MToolButtonGroup, \
     dayu_theme, MToolButton
 from dayu_widgets.qt import *
+from PySide.QtCore import Signal
 
 
 class RegisterWindow(QWidget):

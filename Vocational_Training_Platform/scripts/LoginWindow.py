@@ -7,14 +7,19 @@ from dayu_widgets.dock_widget import MDockWidget
 from dayu_widgets import MTextEdit, MLineEdit, MPushButton, MLabel, MDivider, MCarousel, MTreeView, MToolButtonGroup, \
     dayu_theme, MToolButton
 from dayu_widgets.qt import *
+from PySide import QtCore
 
 
 class LoginWindow(QWidget):
     DEFAULT_HEAD_PATH = os.path.join(os.path.abspath('..'), r"img\defaulthead.jpg")
     ICON_PATH = os.path.join(os.path.abspath('..'), r"img\LOGO1.png")
+    login_signal = QtCore.Signal(str)
 
     def __init__(self):
         super(LoginWindow, self).__init__()
+        # 初始化变量
+        self.user_num = ""
+
         # 初始化控件
         self.icon_logo = None
         self.main_lay = None
@@ -84,4 +89,19 @@ class LoginWindow(QWidget):
         self.setGeometry((1920 - 800) / 2, (1080 - 600) / 2, 300, 350)
 
     def set_func_connect(self):
+        self.btn_login.clicked.connect(self.btn_login_clicked)
+
+    def get_input_message(self):
         pass
+
+    def btn_login_clicked(self):
+        if judge_password("13670892740", "123456"):
+            self.login_signal_emit()
+
+    def login_signal_emit(self):
+        self.login_signal.emit(self.user_num)
+        self.close()
+
+
+def judge_password(user_num, input_password):
+    return True

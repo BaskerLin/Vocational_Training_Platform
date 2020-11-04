@@ -19,6 +19,7 @@ import RegisterWindow
 class MainWindow(QWidget):
     ICON_PATH = os.path.join(os.path.abspath('..'), r"img\LOGO1.png")
     LOGO_PATH = os.path.join(os.path.abspath('..'), r"img\LOGO2.png")
+    DEFAULT_HEAD_PATH = os.path.join(os.path.abspath('..'), r"img\defaulthead.jpg")
     FILE_PATH = os.path.abspath('..')
 
     def __init__(self):
@@ -42,6 +43,8 @@ class MainWindow(QWidget):
         self.btn_register = None
         self.divider_h = None
 
+        self.label_head = None
+
         # 下部layout
         self.lay2 = None
         self.lay2_1 = None
@@ -59,14 +62,14 @@ class MainWindow(QWidget):
 
         self.carousel = None    # 轮播图
 
+        # 其他窗口
+        self.login_window = LoginWindow.LoginWindow()
+        self.register_window = None
+
         # 初始化
         self.construct_ui()
         self.resize_default()
         self.set_func_connect()
-
-        # 其他窗口
-        self.login_window = None
-        self.register_window = None
 
     def construct_ui(self):
         self.setWindowTitle(u"职业培训平台")
@@ -190,9 +193,10 @@ class MainWindow(QWidget):
         layout.addWidget(pushbtn)
 
     def set_atricle_button(self, text, layout):
-        pushbtn = QPushButton(text)
-        pushbtn.setStyleSheet("border:None")
-        layout.addWidget(pushbtn)
+        btn_artical = MToolButton().svg('').text_beside_icon()
+        btn_artical.setText(text)
+        layout.addWidget(btn_artical)
+        btn_artical.clicked.connect(lambda: self.clicked_artical(btn_artical.text()))
 
     def set_list_widget(self, layout):
         self.tree = QTreeWidget()
@@ -231,9 +235,10 @@ class MainWindow(QWidget):
     def set_func_connect(self):
         self.btn_login.clicked.connect(self.show_login_window)  # 登录界面
         self.btn_register.clicked.connect(self.show_register_window)    # 注册界面
+        # self.btn_search.clicked.connect(lambda: self.set_login_user_widget("BaskerLin"))
+        self.login_window.login_signal.connect(lambda: self.set_login_user_widget("BaskerLin"))
 
     def show_login_window(self):
-        self.login_window = LoginWindow.LoginWindow()
         dayu_widgets.dayu_theme.apply(self.login_window)
         self.login_window.show()
 
@@ -243,12 +248,7 @@ class MainWindow(QWidget):
         self.register_window.show()
 
     def tree_widget_item_clicked(self, item):
-        if self.judge_level(item):
-            pass
-
-    def judge_level(self, item):
         self.get_level(item)
-        print self.level
         if self.level == 2:
             self.level = 0
             print True
@@ -263,6 +263,28 @@ class MainWindow(QWidget):
             par = item.parent()
             self.level = self.level + 1
             self.get_level(par)
+
+    def clicked_artical(self, text):
+        print text
+
+    def set_login_user_widget(self, user_num):
+        self.user_widget.close()
+        self.user_widget = QWidget()
+        tem_lay_user = QHBoxLayout()
+
+        icon = QIcon(self.DEFAULT_HEAD_PATH)
+        btn_head = QPushButton()
+        btn_head.setIcon(icon)
+        btn_head.setStyleSheet("border:None")
+        btn_head.setIconSize(QSize(100, 100))
+        btn_head.setMinimumSize(100, 100)
+        btn_username = MToolButton().svg('').text_beside_icon()
+        btn_username.setText(user_num)
+
+        tem_lay_user.addWidget(btn_head)
+        tem_lay_user.addWidget(btn_username)
+        self.user_widget.setLayout(tem_lay_user)
+        self.lay1.addWidget(self.user_widget)
 
 
 if __name__ == '__main__':
