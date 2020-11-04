@@ -5,14 +5,18 @@ import os
 import dayu_widgets
 from dayu_widgets.dock_widget import MDockWidget
 from dayu_widgets import MTextEdit, MLineEdit, MPushButton, MLabel, MDivider, MCarousel, MTreeView, MToolButtonGroup, \
-    dayu_theme, MToolButton
+    dayu_theme, MToolButton, MMessage
 from dayu_widgets.qt import *
-from PySide.QtCore import Signal
+import functools
+from PySide import QtCore
+
+from ConnectDataBase import mydb
 
 
 class RegisterWindow(QWidget):
     DEFAULT_HEAD_PATH = os.path.join(os.path.abspath('..'), r"img\defaulthead.jpg")
     ICON_PATH = os.path.join(os.path.abspath('..'), r"img\LOGO1.png")
+    notenough_signal = QtCore.Signal()
 
     def __init__(self):
         super(RegisterWindow, self).__init__()
@@ -34,6 +38,14 @@ class RegisterWindow(QWidget):
         self.label_education = None
         self.lineEdit_education = None
         self.btn_confirm = None
+
+        # 初始化变量
+        self.username = ""
+        self.userID = ""
+        self.realname = ""
+        self.job = ""
+        self.password = ""
+        self.education = ""
 
         self.construct_ui()
         self.resize_default()
@@ -104,5 +116,30 @@ class RegisterWindow(QWidget):
         self.setGeometry((1920 - 800) / 2, (1080 - 600) / 2, 300, 350)
 
     def set_func_connect(self):
-        pass
+        self.btn_confirm.clicked.connect(self.get_input_message)
+        self.notenough_signal.connect(functools.partial(self.slot_show_message,
+                                                        MMessage.warning,
+                                                        {'text': u'请输入完整信息！'}))
+
+    def get_input_message(self):
+
+        self.username = self.lineEdit_userName.text()
+        self.userID = self.lineEdit_IDNum.text()
+        self.realname = self.lineEdit_realName.text()
+        self.job = self.lineEdit_occupation.text()
+        self.password = self.lineEdit_password.text()
+        self.education = self.lineEdit_education.text()
+
+        if (self.username == "") or \
+                (self.userID == "") or \
+                (self.realname == "") or \
+                (self.job == "") or \
+                (self.password == "") or \
+                (self.education == ""):
+            self.notenough_signal.emit()
+        else:
+            self.close()
+
+    def slot_show_message(self, func, config):
+        func(parent=self, **config)
 

@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c79c38f2-c3e9-4cee-b30a-2aff0d080a0f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/scripts/ConnectDataBase.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/LoginWindow.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/LoginWindow.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scripts/MainWindow.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/MainWindow.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scripts/RegisterWindow.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/RegisterWindow.py" afterDir="false" />
     </list>
@@ -56,27 +56,6 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="RegisterWindow" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="Vocational_Training_Platform" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/scripts" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/scripts/RegisterWindow.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <configuration name="demo" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Vocational_Training_Platform" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -90,6 +69,48 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/dayu_widgets/examples/demo.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="message" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Vocational_Training_Platform" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/dayu_widgets" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/dayu_widgets/message.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="message_example" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Vocational_Training_Platform" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/dayu_widgets/examples" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/dayu_widgets/examples/message_example.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -119,34 +140,13 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="tool_button_group_example" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="Vocational_Training_Platform" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/dayu_widgets/examples" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/dayu_widgets/examples/tool_button_group_example.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Python.MainWindow (1)" />
-        <item itemvalue="Python.tool_button_example" />
-        <item itemvalue="Python.tool_button_group_example" />
-        <item itemvalue="Python.RegisterWindow" />
+        <item itemvalue="Python.message_example" />
+        <item itemvalue="Python.message" />
         <item itemvalue="Python.demo" />
+        <item itemvalue="Python.tool_button_example" />
       </list>
     </recent_temporary>
   </component>
@@ -168,29 +168,29 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="816" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1602297740663" />
-    <state width="1899" height="107" key="GridCell.Tab.0.bottom" timestamp="1604470382626">
+    <state width="1899" height="107" key="GridCell.Tab.0.bottom" timestamp="1604483592596">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="949" height="95" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1080.1880@0.0.1920.1040" timestamp="1604301918457" />
-    <state width="1899" height="107" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1604470382626" />
+    <state width="1899" height="107" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1604483592596" />
     <state width="949" height="147" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1603763048240" />
-    <state width="1899" height="107" key="GridCell.Tab.0.center" timestamp="1604470382626">
+    <state width="1899" height="107" key="GridCell.Tab.0.center" timestamp="1604483592596">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="949" height="95" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1080.1880@0.0.1920.1040" timestamp="1604301918457" />
-    <state width="1899" height="107" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1604470382626" />
+    <state width="1899" height="107" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1604483592596" />
     <state width="949" height="147" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1603763048240" />
-    <state width="1899" height="107" key="GridCell.Tab.0.left" timestamp="1604470382626">
+    <state width="1899" height="107" key="GridCell.Tab.0.left" timestamp="1604483592596">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="949" height="95" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1080.1880@0.0.1920.1040" timestamp="1604301918456" />
-    <state width="1899" height="107" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1604470382626" />
+    <state width="1899" height="107" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1604483592596" />
     <state width="949" height="147" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1603763048240" />
-    <state width="1899" height="107" key="GridCell.Tab.0.right" timestamp="1604470382626">
+    <state width="1899" height="107" key="GridCell.Tab.0.right" timestamp="1604483592596">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="949" height="95" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1080.1880@0.0.1920.1040" timestamp="1604301918457" />
-    <state width="1899" height="107" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1604470382626" />
+    <state width="1899" height="107" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1604483592596" />
     <state width="949" height="147" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1603763048240" />
     <state width="1899" height="149" key="GridCell.Tab.1.bottom" timestamp="1604385566597">
       <screen x="0" y="0" width="1920" height="1040" />
@@ -212,16 +212,20 @@
     </state>
     <state width="1899" height="149" key="GridCell.Tab.1.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1604385566597" />
     <state width="949" height="149" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1603360097505" />
-    <state x="66" y="128" width="1150" height="716" key="SettingsEditor" timestamp="1604399437878">
+    <state x="66" y="128" width="1150" height="716" key="SettingsEditor" timestamp="1604478810643">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="66" y="128" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1604399437878" />
+    <state x="66" y="128" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1604478810643" />
     <state x="461" y="162" width="1150" height="716" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1603164269644" />
     <state x="640" y="344" key="com.intellij.ide.util.TipDialog" timestamp="1604281951300">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="640" y="344" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/1920.0.1080.1880@0.0.1920.1040" timestamp="1604281951300" />
     <state x="640" y="344" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1603681744352" />
+    <state x="583" y="135" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1604481156003">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="583" y="135" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1604481156003" />
     <state x="2020" y="47" width="1580" height="904" maximized="true" key="dock-window-1" timestamp="1604373227273">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
@@ -238,6 +242,10 @@
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="1920" y="0" width="1580" height="892" key="dock-window-4/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1604455800098" />
+    <state x="2052" y="69" width="1580" height="892" key="dock-window-5" timestamp="1604483276781">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="2052" y="69" width="1580" height="892" key="dock-window-5/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1604483276781" />
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1604302555739">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

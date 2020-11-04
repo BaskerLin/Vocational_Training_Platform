@@ -3,8 +3,6 @@ import sys
 import os
 
 from GDB import GMySQLConnector
-import mysql
-import pymysql
 
 import dayu_widgets
 from dayu_widgets.dock_widget import MDockWidget
@@ -14,6 +12,7 @@ from dayu_widgets.qt import *
 
 import LoginWindow
 import RegisterWindow
+from ConnectDataBase import mydb
 
 
 class MainWindow(QWidget):
@@ -294,11 +293,4 @@ if __name__ == '__main__':
     MainWindow.show()
     sys.exit(app.exec_())
 
-    # conn = GMySQLConnector()
-    # conn.set_config({
-    #             'user': "root",
-    #             'password': "root",
-    #             'host': "localhost",
-    #             'database': "world",
-    #         })
-    # print conn.auto_query("SELECT * FROM country")[3]['Region']
+
