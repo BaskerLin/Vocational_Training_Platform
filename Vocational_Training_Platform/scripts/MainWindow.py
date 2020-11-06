@@ -12,7 +12,7 @@ from dayu_widgets.qt import *
 
 import LoginWindow
 import RegisterWindow
-from ConnectDataBase import mydb
+from ConnectDataBase import my_db, my_cursor, query_all
 
 
 class MainWindow(QWidget):
@@ -69,6 +69,10 @@ class MainWindow(QWidget):
         self.construct_ui()
         self.resize_default()
         self.set_func_connect()
+
+        # for x in query_all("muser"):
+        #     for i in x:
+        #         print i.encode("utf8")
 
     def construct_ui(self):
         self.setWindowTitle(u"职业培训平台")
@@ -220,7 +224,7 @@ class MainWindow(QWidget):
         new_widget_3_3 = QTreeWidgetItem(new_widget_3)
         new_widget_3_3.setText(0, u'运输与物流')
         new_widget_3_3_1 = QTreeWidgetItem(new_widget_3_3)
-        new_widget_3_3_1.setText(0, u'第一章')
+        new_widget_3_3_1.setText(0, u'物流管理入门')
 
         tem_widget = QWidget()
         tem_lay = QVBoxLayout()

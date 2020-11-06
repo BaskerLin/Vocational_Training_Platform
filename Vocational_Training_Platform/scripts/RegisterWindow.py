@@ -10,7 +10,7 @@ from dayu_widgets.qt import *
 import functools
 from PySide import QtCore
 
-from ConnectDataBase import mydb
+from ConnectDataBase import my_db, my_cursor, insert
 
 
 class RegisterWindow(QWidget):
@@ -31,6 +31,8 @@ class RegisterWindow(QWidget):
         self.lineEdit_password = None
         self.label_realName = None
         self.lineEdit_realName = None
+        self.label_phoneNum = None
+        self.lineEdit_phoneNum = None
         self.label_IDNum = None
         self.lineEdit_IDNum = None
         self.label_occupation = None
@@ -43,9 +45,11 @@ class RegisterWindow(QWidget):
         self.username = ""
         self.userID = ""
         self.realname = ""
+        self.phoneNum = ""
         self.job = ""
         self.password = ""
         self.education = ""
+        self.head = ""
 
         self.construct_ui()
         self.resize_default()
@@ -82,6 +86,11 @@ class RegisterWindow(QWidget):
         self.label_realName.setMinimumWidth(90)
         self.lineEdit_realName = MLineEdit()
         self.set_widget_layout(self.label_realName, self.lineEdit_realName)
+
+        self.label_phoneNum = MLabel(u"手机号码:")
+        self.label_phoneNum.setMinimumWidth(90)
+        self.lineEdit_phoneNum = MLineEdit()
+        self.set_widget_layout(self.label_phoneNum, self.lineEdit_phoneNum)
 
         self.label_IDNum = MLabel(u"身份证号码:")
         self.label_IDNum.setMinimumWidth(90)
@@ -126,18 +135,28 @@ class RegisterWindow(QWidget):
         self.username = self.lineEdit_userName.text()
         self.userID = self.lineEdit_IDNum.text()
         self.realname = self.lineEdit_realName.text()
+        self.phoneNum = self.lineEdit_phoneNum.text()
         self.job = self.lineEdit_occupation.text()
         self.password = self.lineEdit_password.text()
         self.education = self.lineEdit_education.text()
 
+        self.head = "False"
+
         if (self.username == "") or \
                 (self.userID == "") or \
                 (self.realname == "") or \
+                (self.phoneNum == "") or \
                 (self.job == "") or \
                 (self.password == "") or \
                 (self.education == ""):
             self.notenough_signal.emit()
         else:
+            table = "muser"
+            header = "(MTNum, MTName, MId, MName, MJob, MPhoto, MPassword, MSRecord)"
+            value = (self.phoneNum, self.realname, self.userID, self.username,
+                     self.job, self.head, self.password, self.education)
+
+            insert(table, header, value, 8)
             self.close()
 
     def slot_show_message(self, func, config):
